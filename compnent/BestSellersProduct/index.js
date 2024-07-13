@@ -9,7 +9,7 @@ import Toast from "../Toast";
 import axios from "axios";
 const BestSellersProduct = ({ products, updateCartCount }) => {
   console.log(products);
-  const [singleProd, setSingleProd] = useState({});
+  const [singleProd, setSingleProd] = useState();
   const addToCart = () => {
     let savedProduct = JSON.parse(localStorage.getItem("timbo-product"));
     if (!savedProduct) {
@@ -49,12 +49,28 @@ const BestSellersProduct = ({ products, updateCartCount }) => {
       }
     }
   };
+
+  const getProduct = async () => {
+    try {
+      const response = await axios.get(
+        `../../api/single/7d4293981df24a689cc2bfa6c6ead2d2`
+      );
+      if (response.data) {
+        const itemdate = {
+          id: response.data.id,
+          image: `https://api.timbu.cloud/images/${response.data.photos[0].url}`,
+          name: response.data.name,
+          des: response.data.description,
+          price: response.data.current_price,
+        };
+        setSingleProd(itemdate);
+      }
+    } catch (error) {
+      console.error("There was an error making the request:", error);
+    }
+  };
   useEffect(() => {
-    setSingleProd(
-      products.filter(
-        (prod) => prod.id === "7d4293981df24a689cc2bfa6c6ead2d2"
-      )[0]
-    );
+    getProduct();
   }, []);
   return (
     <section>

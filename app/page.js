@@ -86,7 +86,7 @@ const HomePage = () => {
         <div>
           <Header count={cartCount} />
           <Hero />
-          <Category />
+          {/* <Category /> */}
           <FeaturedProduct
             updateCartCount={updateCartCount}
             products={products}
