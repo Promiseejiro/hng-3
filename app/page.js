@@ -35,6 +35,7 @@ const HomePage = () => {
           price: item.current_price[0].NGN[0],
         };
         productArray.push(itemdate);
+        page == 0 && setBestSelerProd(productArray);
         setProducts(productArray);
         seIsLoading(false);
       });
