@@ -1,11 +1,12 @@
 .section {
   background-color: var(--main-color-faint);
   padding-top: 16px;
+  overflow: hidden;
 }
 
 .categoryHeader {
   width: 95%;
-  /* margin: auto; */
+  margin: auto;
   /* overflow: scroll; */
 }
 
