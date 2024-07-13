@@ -4,8 +4,9 @@
 }
 
 .categoryHeader {
-  width: 90%;
-  margin: auto;
+  width: 95%;
+  /* margin: auto; */
+  /* overflow: scroll; */
 }
 
 .card_list {
