@@ -52,11 +52,14 @@
   overflow: hidden;
   width: 90%;
   text-align: left;
+  font-weight: 500;
 }
 
 .productPrice {
   text-align: left;
   margin: 0;
+  font-weight: 500;
+
 }
 
 .rating {
