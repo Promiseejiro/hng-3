@@ -1,0 +1,98 @@
+.header {
+  background-color: var(--main-color);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.link {
+  color: black;
+}
+
+.logo_container {
+  margin-top: 10px;
+}
+
+.header_list {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  transform: translateX(-70px);
+}
+
+.icon_container {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header_icon {
+  width: 25px;
+  width: 25px;
+}
+
+.cartContainer {
+  position: relative;
+}
+
+.count {
+  position: absolute;
+  right: -0.5rem;
+  top: -1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.count p {
+  background-color: white;
+  color: var(--main-color);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_list a {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.notify {
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+}
+
+.bar {
+  font-size: 14px;
+  font-weight: 500;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header_list {
+    display: none;
+  }
+
+  .bar {
+    display: block;
+  }
+
+  .notify {
+    display: none;
+  }
+
+  .icon_container {
+    gap: 16px;
+  }
+}

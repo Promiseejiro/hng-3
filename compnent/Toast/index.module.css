@@ -1,0 +1,5 @@
+.message {
+  background-color: var(--main-color);
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+}

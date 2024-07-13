@@ -1,0 +1,84 @@
+.container {
+  margin: 52px 0;
+  margin: auto;
+}
+
+.image_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--main-color);
+  border-radius: 10px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.image {
+  width: 150px;
+  height: auto;
+}
+
+.product_name {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.flex_container {
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  display: block;
+}
+
+.del {
+  display: flex;
+  align-items: center;
+  display: block;
+  width: 48px;
+}
+
+.qty {
+  border: 2px solid #f4f4f4;
+  padding: 2px;
+  display: flex;
+}
+
+.num {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.controlbtn {
+  width: 2rem;
+  width: 2rem;
+  cursor: pointer;
+}
+
+.clearItem {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .image {
+    width: 80px;
+    height: auto;
+  }
+}

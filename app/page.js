@@ -1,95 +1,107 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import BestSellers from "@/compnent/BestSellers";
+import BestSellersProduct from "@/compnent/BestSellersProduct";
+import Category from "@/compnent/Category";
+import FeaturedProduct from "@/compnent/FeaturedProducts";
+import Header from "@/compnent/Header";
+import Hero from "@/compnent/Hero";
+import Footer from "@/compnent/Footer";
+import ShippingCards from "@/compnent/ShippingCard";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import CategoryCard from "@/compnent/Category/CategotyCard";
+import Loader from "@/compnent/Loader";
+const HomePage = () => {
+  const [products, setProducts] = useState([]);
+  const [bestSellerProduct, setBestSelerProd] = useState([]);
+  const [cartCount, setCountCount] = useState(0);
+  const [page, setPage] = useState(1);
+  const [isLoading, seIsLoading] = useState(false);
+  const updateCartCount = (count) => {
+    setCountCount(count);
+  };
 
-export default function Home() {
+  const getProduct = async () => {
+    try {
+      let productArray = [];
+      seIsLoading(true);
+      const response = await axios.get(`/api/product?page=1`);
+      response.data.product.items.map((item) => {
+        const itemdate = {
+          id: item.id,
+          image: `https://api.timbu.cloud/images/${item.photos[0].url}`,
+          name: item.name,
+          des: item.description,
+          price: item.current_price[0].NGN[0],
+        };
+        productArray.push(itemdate);
+        setProducts(productArray);
+        seIsLoading(false);
+      });
+    } catch (error) {
+      console.error("There was an error making the request:", error);
+    }
+  };
+
+  const fetchPagePerPage = async (page) => {
+    console.log(page);
+    try {
+      let productArray = [];
+      const response = await axios.get(`/api/product?page=${page}`);
+      response.data.product.items.map((item) => {
+        const itemdate = {
+          id: item.id,
+          image: `https://api.timbu.cloud/images/${item.photos[0].url}`,
+          name: item.name,
+          des: item.description,
+          price: item.current_price[0].NGN[0],
+        };
+        console.log(productArray);
+        productArray.push(itemdate);
+        setProducts(productArray);
+      });
+      return productArray;
+    } catch (error) {
+      console.error("There was an error making the request:", error);
+    }
+  };
+
+  useEffect(() => {
+    getProduct();
+  }, []);
+
+  useEffect(() => {
+    let savedProduct = JSON.parse(localStorage.getItem("timbo-product"));
+    if (savedProduct) {
+      setCountCount(savedProduct.length);
+    }
+  }, []);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
+    <section>
+      {isLoading ? (
+        <Loader />
+      ) : (
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+          <Header count={cartCount} />
+          <Hero />
+          <Category />
+          <FeaturedProduct
+            updateCartCount={updateCartCount}
+            products={products}
+            loadMorePoduct={fetchPagePerPage}
+          />
+          <BestSellers updateCartCount={updateCartCount} />
+          <BestSellersProduct
+            updateCartCount={updateCartCount}
+            products={products}
+          />
+          <ShippingCards />
+          <Footer />
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      )}
+    </section>
   );
-}
+};
+
+export default HomePage;

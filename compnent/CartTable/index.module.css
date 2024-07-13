@@ -1,0 +1,53 @@
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.table {
+  width: 100%;
+}
+
+.table th {
+  text-align: left;
+}
+
+.product_image {
+  width: 30%;
+}
+
+.product_des {
+  width: 30%;
+}
+
+.product_qu {
+  width: 20%;
+}
+
+.product_price {
+  width: 20%;
+}
+
+.product_del {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.cartBtn {
+  padding: 5px 10px;
+  background-color: var(--dark-main-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 15px;
+  margin-top: 1rem;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    margin: auto;
+  }
+}
