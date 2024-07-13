@@ -45,8 +45,14 @@
 
 .header {
   text-align: left;
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 500;
+  margin: 0;
+}
+
+.desti {
+  padding: 10px 0;
+  margin: 0;
 }
 
 @media (max-width: 768px) {

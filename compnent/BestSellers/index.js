@@ -23,8 +23,10 @@ const BestSellers = ({ updateCartCount }) => {
       <div className={style.flex_container}>
         <div className={`${style.flex_item} ${style.content}`}>
           <div>
-            <h6 className={style.header}>Best sellers</h6>
-            <p>Take a look at our top selling product of the week.</p>
+            <h4 className={style.header}>Best sellers</h4>
+            <p className={style.desti}>
+              Take a look at our top selling product of the week.
+            </p>
             <div className={style.btn_container}>
               <a
                 href="#product"
