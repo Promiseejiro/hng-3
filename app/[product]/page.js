@@ -21,6 +21,7 @@ const SingleProduct = ({ params }) => {
     setCountCount(count);
   };
   const addToCart = () => {
+    console.log("first");
     let savedProduct = JSON.parse(localStorage.getItem("timbo-product"));
     if (!savedProduct) {
       savedProduct = [
@@ -40,7 +41,7 @@ const SingleProduct = ({ params }) => {
     } else {
       const prevProduct = localStorage.getItem("timbo-product");
       const checkIfProductIsincart = JSON.parse(prevProduct).filter(
-        (product) => product.url === product.url
+        (product) => product.id === params.product
       );
       if (checkIfProductIsincart.length === 1) {
         toast(<Toast text={"Item Already in cart"} type="success" />);
@@ -120,7 +121,6 @@ const SingleProduct = ({ params }) => {
       (prod) => prod.id === params.product
     );
     if (productexistIncart) {
-      console.log(productexistIncart);
       // setQuantity(productexistIncart[0].qty);
     }
     if (savedProduct) {
@@ -164,7 +164,7 @@ const SingleProduct = ({ params }) => {
                           size="16px"
                           lineHeight="25px"
                         >
-                          ${currentProduct.price}
+                          &#8358;{currentProduct.price.toLocaleString()}
                         </Typography>
                       </div>
                       <div>

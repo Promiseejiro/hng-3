@@ -51,8 +51,9 @@
 }
 
 .desti {
-  padding: 10px 0;
   margin: 0;
+  text-align: center;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {
@@ -73,5 +74,9 @@
 
   .header {
     text-align: center;
+  }
+
+  .desti {
+    padding: 10px;
   }
 }

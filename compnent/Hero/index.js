@@ -31,7 +31,7 @@ const Hero = () => {
             <Typography fontWeight="600" size="34px" lineHeight="40px">
               T5 Mini Smart Watch
             </Typography>
-            <Typography fontWeight="500" size="16px" lineHeight="25px">
+            <Typography fontWeight="600" size="18px" lineHeight="25px">
               Stay connected and healthy with our latest smart watches! Track
               your workouts and recieve notification on a go.
             </Typography>

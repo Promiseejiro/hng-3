@@ -94,9 +94,9 @@ const OrderSummary = ({ total, checkOutSuccess }) => {
           &#8358;{total.toLocaleString()}
         </Typography>
       </div>
-      <div>
+      <div className={style.checkoutbtn}>
         <Button
-          verticalPadding="5px"
+          verticalPadding="10px"
           horizontalPadding="50px"
           clickHandler={checkOutHandler}
         >

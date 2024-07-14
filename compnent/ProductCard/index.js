@@ -61,7 +61,7 @@ const Product = ({ id, image, name, rating, price, updateCartCount }) => {
             <Rating rating={rating} />
           </div>
           <p className={style.name}>{name}</p>
-          <p className={style.productPrice}>${price}</p>
+          <p className={style.productPrice}>&#8358;{price.toLocaleString()}</p>
         </div>
       </Link>
       <div className={style.btn_container}>

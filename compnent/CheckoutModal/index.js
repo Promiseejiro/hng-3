@@ -30,7 +30,7 @@ const CheckOutModal = ({ closeCheckout }) => {
         </Typography>
         <Link href="/" className={style.link}>
           <Button
-            verticalPadding="5px"
+            verticalPadding="10px"
             horizontalPadding="50px"
             fontSize="14px"
             fontWeight="400"

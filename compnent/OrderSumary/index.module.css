@@ -17,3 +17,9 @@
   border-bottom: 1px solid #000000;
   margin: 25px 0;
 }
+
+.checkoutbtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

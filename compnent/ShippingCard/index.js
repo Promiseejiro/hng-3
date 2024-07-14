@@ -10,7 +10,7 @@ const ShippingCards = ({ icon, text, header }) => {
       <div className={style.card_list}>
         <div className={style.item1}>
           <div className={style.shippingCard}>
-            <Image src={car} className={style.image} />
+            <Image src={car} className={style.image} alt="" />
             <h5>Free shipping</h5>
             <p>Enjoy free delivery on all order from our company.</p>
           </div>
@@ -19,14 +19,14 @@ const ShippingCards = ({ icon, text, header }) => {
         <div className={style.item2}>
           {" "}
           <div className={style.shippingCard}>
-            <Image src={card} className={style.image} />
+            <Image src={card} className={style.image} alt=""/>
             <h5>Secure payment</h5>
             <p>Benefit from secure payment option with our company.</p>
           </div>
         </div>
         <div className={style.last}>
           <div className={`${style.shippingCard} `}>
-            <Image src={tone} className={style.image} />
+            <Image src={tone} className={style.image} alt="" />
             <h5>24 hour support</h5>
             <p>we offer 24 hour customer supportto our customers</p>
           </div>
