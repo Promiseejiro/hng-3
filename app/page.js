@@ -45,7 +45,6 @@ const HomePage = () => {
   };
 
   const fetchPagePerPage = async (page) => {
-    console.log(page);
     try {
       let productArray = [];
       const response = await axios.get(`/api/product?page=${page}`);
