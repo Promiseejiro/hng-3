@@ -8,7 +8,6 @@ import toast from "react-hot-toast";
 import Toast from "../Toast";
 import axios from "axios";
 const BestSellersProduct = ({ products, updateCartCount }) => {
-  console.log(products);
   const [singleProd, setSingleProd] = useState();
   const addToCart = () => {
     let savedProduct = JSON.parse(localStorage.getItem("timbo-product"));
