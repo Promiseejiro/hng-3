@@ -57,7 +57,6 @@ const HomePage = () => {
           des: item.description,
           price: item.current_price[0].NGN[0],
         };
-        console.log(productArray);
         productArray.push(itemdate);
         setProducts(productArray);
       });
